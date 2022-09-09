@@ -7,9 +7,11 @@ export S3_SECRET_KEY=eicS3read
 export EIC_SHELL_PREFIX=/global/project/projectdirs/m3763/$USER/eic/local
 
 #source /opt/detector/setup.sh
-source /opt/detector/athena-nightly/setup.sh
+source /opt/detector/epic-nightly/setup.sh
+export DETECTOR_PATH=$EIC_SHELL_PREFIX/../epic
 export JUGGLER_INSTALL_PREFIX=$EIC_SHELL_PREFIX
 export LD_LIBRARY_PATH=$EIC_SHELL_PREFIX/lib:$LD_LIBRARY_PATH
+echo detector path is ${DETECTOR_PATH}
 echo juggler version is ${JUGGLER_INSTALL_PREFIX}
 
 #source /opt/detector/setup.sh
