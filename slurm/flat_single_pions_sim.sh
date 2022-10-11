@@ -1,7 +1,9 @@
 #!/bin/bash
 
-mkdir -p output_sim
-pushd output_sim # create sub dir under outdir to avoid conflict if running multiple setting the same time
+P_NAME_ARR=("lo" "mid" "hi" "extrahi")
+
+mkdir -p output_sim_${P_NAME_ARR[$2]}
+pushd output_sim_${P_NAME_ARR[$2]} # create sub dir under outdir to avoid conflict if running multiple setting the same time
 
 # create different running directory for different jobs
 INPUT=$(( $1 + 0 ))
@@ -12,7 +14,7 @@ pushd $JOB
 
 cp /global/project/projectdirs/m3763/wenqing/eic/reconstruction_benchmarks/benchmarks/tracking/flat_pions.sh .
 
-export JUGGLER_N_EVENTS=1000
+export JUGGLER_N_EVENTS=10
 
 # $2 -- mom range, $3 -- eta range
 bash flat_pions.sh $2 $3
